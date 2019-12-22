@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: work-support-eureka-server
+server:
+  port: 8761
+eureka:
+  server:
+    enable-self-preservation: false
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    healthcheck:
+      enabled: true
+
+security:
+  user:
+    name: user
+    password: password

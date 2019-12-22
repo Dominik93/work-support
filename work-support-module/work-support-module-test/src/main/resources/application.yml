@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: support-test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+server:
+  port: 0
+  contextPath: /test
+  address: localhost
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+tenant:
+  database:
+    available: TEST
+    default: TEST
+  environment:
+    available: ENV1, ENV2, ENV3
+    default: ENV1
+test:
+  logins: '{ENV1: "doms836", ENV2: "doms935, marmar702", ENV3: "domslu560"}'
+security:
+  permissions: '{ENV1: "TEST_MODULE",
+                 ENV2: "TEST_MODULE",
+                 ENV3: "TEST_MODULE",
+                 ENV4:  ""}'

@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+spring:
+  application:
+    name: support-apigateway
+eureka:
+  client:
+    fetchRegistry: true
+    healthcheck:
+      enabled: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: true
+zuul:
+  prefix: /support
+  routes:
+    test-service:
+      path: /test/**
+      serviceId: support-test
+    sql-service:
+      path: /sql/**
+      serviceId: support-sql
+    script-service:
+      path: /script/**
+      serviceId: support-script
+    log-service:
+      path: /log/**
+      serviceId: support-log
+    context-service:
+      path: /context/**
+      serviceId: support-context

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: support-context
+server:
+  port: 0
+  contextPath: /context
+  address: localhost
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+tenant:
+  environment:
+    available: ANY
+    default: ENV1
+services: support-test
