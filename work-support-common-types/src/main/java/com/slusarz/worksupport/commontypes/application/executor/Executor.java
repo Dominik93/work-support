@@ -1,6 +1,6 @@
-package com.slusarz.worksupport.permission.configuration;
+package com.slusarz.worksupport.commontypes.application.executor;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@ComponentScan(basePackages = "com.slusarz.worksupport.permission")
-public @interface EnablePermissionSecurity {
+@Component
+public @interface Executor {
+    String value() default "";
 }

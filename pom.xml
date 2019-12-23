@@ -17,11 +17,13 @@
         <module>work-support-tenant</module>
         <module>work-support-permission</module>
         <module>work-support-init</module>
+        <module>work-support-ssh</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <lombok.version>1.18.8</lombok.version> <!-- needed for plugin-->
+        <jsch.version>0.1.54</jsch.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
     </properties>
@@ -44,6 +46,14 @@
                 <scope>import</scope>
             </dependency>
 
+
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+
+
             <dependency>
                 <groupId>com.slusarz</groupId>
                 <artifactId>work-support-common-types</artifactId>
@@ -62,6 +72,11 @@
             <dependency>
                 <groupId>com.slusarz</groupId>
                 <artifactId>work-support-tenant</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
+                <artifactId>work-support-ssh</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

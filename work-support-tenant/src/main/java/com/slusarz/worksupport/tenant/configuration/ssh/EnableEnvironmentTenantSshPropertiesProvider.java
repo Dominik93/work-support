@@ -1,6 +1,6 @@
-package com.slusarz.worksupport.permission.configuration;
+package com.slusarz.worksupport.tenant.configuration.ssh;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,6 +11,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@ComponentScan(basePackages = "com.slusarz.worksupport.permission")
-public @interface EnablePermissionSecurity {
+@Import(TenantSshConfiguration.class)
+public @interface EnableEnvironmentTenantSshPropertiesProvider {
 }

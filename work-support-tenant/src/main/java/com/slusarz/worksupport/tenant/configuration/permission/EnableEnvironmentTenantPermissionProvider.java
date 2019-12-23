@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import(TenantPermissionConfiguration.class)
-public @interface EnableEnvironmentTenantPermission {
+public @interface EnableEnvironmentTenantPermissionProvider {
 }

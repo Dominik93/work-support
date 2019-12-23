@@ -1,0 +1,15 @@
+ssh:
+  default:
+    port: 22
+    password: appuser
+    user: appuser
+  connections:
+    - environment: ENV1
+      ip: 127.0.0.1
+      port: 22
+      user: user
+      password: pass
+    - environment: ENV2
+      ip: 127.0.0.2
+      user: user2
+      password: pass2

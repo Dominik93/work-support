@@ -34,10 +34,24 @@ tenant:
   environment:
     available: ENV1, ENV2, ENV3
     default: ENV1
-test:
+test: # todo: replace with ssh style
   logins: '{ENV1: "doms836", ENV2: "doms935, marmar702", ENV3: "domslu560"}'
 security:
   permissions: '{ENV1: "TEST_MODULE",
                  ENV2: "TEST_MODULE",
                  ENV3: "TEST_MODULE",
                  ENV4:  ""}'
+
+
+ssh:
+  default:
+    port: 22
+    password: appuser
+    user: appuser
+  connections:
+    - environment: ENV1
+      user: user
+      ip: 127.0.0.1
+      password: pass
+    - environment: ENV2
+      ip: 127.0.0.2

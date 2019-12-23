@@ -1,18 +1,22 @@
 package com.slusarz.worksupport.module.test;
 
 import com.slusarz.worksupport.permission.configuration.EnablePermissionSecurity;
+import com.slusarz.worksupport.ssh.configuration.EnableSsh;
 import com.slusarz.worksupport.tenant.configuration.environment.EnableEnvironmentTenant;
-import com.slusarz.worksupport.tenant.configuration.permission.EnableEnvironmentTenantPermission;
+import com.slusarz.worksupport.tenant.configuration.permission.EnableEnvironmentTenantPermissionProvider;
+import com.slusarz.worksupport.tenant.configuration.ssh.EnableEnvironmentTenantSshPropertiesProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+@EnableSsh
 @EnableEurekaClient
 @EnablePermissionSecurity
 @EnableEnvironmentTenant
-@EnableEnvironmentTenantPermission
+@EnableEnvironmentTenantSshPropertiesProvider
+@EnableEnvironmentTenantPermissionProvider
 @SpringBootApplication(scanBasePackages = "com.slusarz.worksupport.module.test")
 public class TestApplication extends WebSecurityConfigurerAdapter {
 
@@ -25,7 +29,7 @@ public class TestApplication extends WebSecurityConfigurerAdapter {
         security.headers().frameOptions().sameOrigin();
         security.httpBasic().disable();
         security.authorizeRequests().anyRequest().permitAll();
-        security.csrf().disable(); // TODO do poprawy
+        security.csrf().disable(); // TODO FIXME
     }
 
 }
