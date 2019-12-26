@@ -1,7 +1,7 @@
 package com.slusarz.worksupport.init.config;
 
-import com.slusarz.worksupport.commontypes.domain.DefaultDatabase;
-import com.slusarz.worksupport.commontypes.domain.DefaultEnvironment;
+import com.slusarz.worksupport.commontypes.domain.Database;
+import com.slusarz.worksupport.commontypes.domain.Environment;
 import lombok.Value;
 
 import java.util.List;
@@ -10,12 +10,12 @@ import java.util.List;
 @Value(staticConstructor = "of")
 public class ModuleConfig {
 
-    private List<DefaultEnvironment> environments;
+    private List<Environment> environments;
 
-    private DefaultEnvironment defaultEnvironment;
+    private Environment environment;
 
-    private List<DefaultDatabase> databases;
+    private List<Database> databases;
 
-    private DefaultDatabase defaultDatabase;
+    private Database defaultDatabase;
 
 }

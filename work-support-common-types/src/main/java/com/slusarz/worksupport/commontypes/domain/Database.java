@@ -1,7 +1,10 @@
 package com.slusarz.worksupport.commontypes.domain;
 
-public interface Database {
+import lombok.Value;
 
-    String getName();
+@Value(staticConstructor = "of")
+public class Database {
+
+    private String name;
 
 }

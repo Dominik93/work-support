@@ -1,7 +1,7 @@
 package com.slusarz.worksupport.permission.application.expression;
 
-import com.slusarz.worksupport.permission.domain.DefaultPermission;
-import com.slusarz.worksupport.permission.domain.authentication.PermissionGrantedAuthority;
+import com.slusarz.worksupport.permission.domain.granterauthority.PermissionGrantedAuthority;
+import com.slusarz.worksupport.permission.domain.permission.Permission;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionOperations;
@@ -17,7 +17,8 @@ public class PermissionMethodSecurityExpressionRoot
     }
 
     public boolean hasPermission(String permission) {
-        boolean hasPermission = hasPermission(new PermissionGrantedAuthority(DefaultPermission.of(permission)));
+        boolean hasPermission
+                = hasPermission(new PermissionGrantedAuthority(Permission.of(permission)));
         if (hasPermission) {
             log.info("Has permission " + permission);
         } else {

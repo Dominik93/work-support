@@ -1,12 +1,14 @@
 package com.slusarz.worksupport.module.context;
 
-import com.slusarz.worksupport.tenant.configuration.environment.EnableEnvironmentTenant;
+import com.slusarz.worksupport.tenant.environment.configuration.EnableEnvironmentTenant;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+@Slf4j
 @EnableEurekaClient
 @EnableEnvironmentTenant
 @SpringBootApplication(scanBasePackages = "com.slusarz.worksupport.module.context")
@@ -20,5 +22,4 @@ public class ContextApplication extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity security) throws Exception {
         security.httpBasic().disable();
     }
-
 }

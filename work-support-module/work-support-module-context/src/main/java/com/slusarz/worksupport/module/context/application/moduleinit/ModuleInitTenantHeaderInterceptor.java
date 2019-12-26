@@ -1,7 +1,7 @@
 package com.slusarz.worksupport.module.context.application.moduleinit;
 
-import com.slusarz.worksupport.tenant.application.environment.EnvironmentTenantContext;
-import com.slusarz.worksupport.tenant.domain.tenant.TenantConstants;
+import com.slusarz.worksupport.commontypes.domain.TenantConstants;
+import com.slusarz.worksupport.tenant.environment.application.context.EnvironmentTenantContext;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;

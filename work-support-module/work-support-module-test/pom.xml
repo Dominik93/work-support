@@ -16,9 +16,18 @@
             <groupId>com.slusarz</groupId>
             <artifactId>work-support-init</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.slusarz</groupId>
-            <artifactId>work-support-tenant</artifactId>
+            <artifactId>work-support-tenant-environment</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.slusarz</groupId>
+            <artifactId>work-support-tenant-environment-ssh-extension</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.slusarz</groupId>
+            <artifactId>work-support-tenant-environment-permission-extension</artifactId>
         </dependency>
         <dependency>
             <groupId>com.slusarz</groupId>

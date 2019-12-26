@@ -17,6 +17,7 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 tenant:
   environment:
-    available: ANY
+    any: true
     default: ENV1
-services: support-test
+context:
+  services: support-test

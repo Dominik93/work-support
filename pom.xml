@@ -71,9 +71,25 @@
             </dependency>
             <dependency>
                 <groupId>com.slusarz</groupId>
-                <artifactId>work-support-tenant</artifactId>
+                <artifactId>work-support-tenant-database</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
+                <artifactId>work-support-tenant-environment</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
+                <artifactId>work-support-tenant-environment-permission-extension</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
+                <artifactId>work-support-tenant-environment-ssh-extension</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.slusarz</groupId>
                 <artifactId>work-support-ssh</artifactId>

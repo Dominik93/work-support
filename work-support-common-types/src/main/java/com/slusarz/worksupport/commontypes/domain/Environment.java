@@ -1,7 +1,10 @@
 package com.slusarz.worksupport.commontypes.domain;
 
-public interface Environment {
+import lombok.Value;
 
-    String getName();
+@Value(staticConstructor = "of")
+public class Environment {
+
+    private String name;
 
 }

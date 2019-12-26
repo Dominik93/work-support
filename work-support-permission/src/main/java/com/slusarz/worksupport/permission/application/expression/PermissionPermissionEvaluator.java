@@ -1,7 +1,7 @@
 package com.slusarz.worksupport.permission.application.expression;
 
-import com.slusarz.worksupport.permission.application.PermissionsProvider;
-import com.slusarz.worksupport.permission.domain.Permission;
+import com.slusarz.worksupport.permission.domain.permission.Permission;
+import com.slusarz.worksupport.permission.extension.PermissionsProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
@@ -18,7 +18,7 @@ public class PermissionPermissionEvaluator implements PermissionEvaluator {
         if ((auth == null) || (targetDomainObject == null) || !(permission instanceof String)) {
             return false;
         }
-        return hasPermission(() -> permission.toString().toUpperCase());
+        return hasPermission(permission.toString().toUpperCase());
     }
 
     @Override
@@ -26,11 +26,11 @@ public class PermissionPermissionEvaluator implements PermissionEvaluator {
         if ((auth == null) || (targetType == null) || !(permission instanceof String)) {
             return false;
         }
-        return hasPermission(() -> permission.toString().toUpperCase());
+        return hasPermission(permission.toString().toUpperCase());
     }
 
-    private boolean hasPermission(Permission permission) {
-        return permissionsProvider.hasPermission(permission);
+    private boolean hasPermission(String permissionName) {
+        return permissionsProvider.hasPermission(Permission.of(permissionName));
     }
 
 }

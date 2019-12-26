@@ -1,7 +1,7 @@
 package com.slusarz.worksupport.module.test.application;
 
-import com.slusarz.worksupport.module.test.domain.login.Login;
 import com.slusarz.worksupport.module.test.domain.code.Code;
+import com.slusarz.worksupport.module.test.domain.login.Login;
 import com.slusarz.worksupport.module.test.security.TestAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -6,8 +6,8 @@ import com.jcraft.jsch.Session;
 import com.slusarz.worksupport.commontypes.application.provider.annotation.Provide;
 import com.slusarz.worksupport.commontypes.application.provider.annotation.Provider;
 import com.slusarz.worksupport.ssh.application.SshModuleRuntimeException;
-import com.slusarz.worksupport.ssh.application.connection.SshConnectionPropertiesProvider;
 import com.slusarz.worksupport.ssh.domain.conection.SshConnectionProperties;
+import com.slusarz.worksupport.ssh.extenstion.SshConnectionPropertiesProvider;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

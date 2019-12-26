@@ -1,6 +1,7 @@
 package com.slusarz.worksupport.permission.domain.authentication;
 
-import com.slusarz.worksupport.permission.application.PermissionsProvider;
+import com.slusarz.worksupport.permission.domain.granterauthority.PermissionGrantedAuthority;
+import com.slusarz.worksupport.permission.extension.PermissionsProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
