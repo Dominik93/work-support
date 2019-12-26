@@ -81,12 +81,12 @@
             </dependency>
             <dependency>
                 <groupId>com.slusarz</groupId>
-                <artifactId>work-support-tenant-environment-permission-extension</artifactId>
+                <artifactId>work-support-tenant-environment-extension-permission</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.slusarz</groupId>
-                <artifactId>work-support-tenant-environment-ssh-extension</artifactId>
+                <artifactId>work-support-tenant-environment-extension-ssh</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

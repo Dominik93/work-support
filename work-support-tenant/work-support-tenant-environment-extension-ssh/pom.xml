@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>work-support-tenant-environment-ssh-extension</artifactId>
+    <artifactId>work-support-tenant-environment-extension-ssh</artifactId>
 
     <dependencies>
         <dependency>
