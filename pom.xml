@@ -11,13 +11,9 @@
     <modules>
         <module>work-support-eureka-server</module>
         <module>work-support-zuul-apigateway</module>
-        <module>work-support-common-types</module>
+        <module>work-support-component</module>
         <module>work-support-module</module>
         <module>work-support-web</module>
-        <module>work-support-tenant</module>
-        <module>work-support-permission</module>
-        <module>work-support-init</module>
-        <module>work-support-ssh</module>
     </modules>
 
     <properties>
