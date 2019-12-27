@@ -19,6 +19,14 @@
 
         <dependency>
             <groupId>com.slusarz</groupId>
+            <artifactId>work-support-tenant-database</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.slusarz</groupId>
+            <artifactId>work-support-multitenancy-database</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.slusarz</groupId>
             <artifactId>work-support-tenant-environment</artifactId>
         </dependency>
         <dependency>

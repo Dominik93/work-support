@@ -1,14 +1,6 @@
 spring:
   application:
     name: support-test
-  datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-  jpa:
-    hibernate:
-      ddl-auto: none
   h2:
     console:
       path: /h2-console
@@ -34,6 +26,29 @@ tenant:
   environment:
     available: ENV1, ENV2, ENV3
     default: ENV1
+database:
+  default:
+    driver-class-name: org.h2.Driver
+  default-connections:
+    - database: TEST
+      username: sa
+      password: ""
+      schema: TEST
+  environments:
+    - environment: ENV1
+      connections:
+        - database: TEST
+          url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
+    - environment: ENV2
+      connections:
+        - database: TEST
+          url: jdbc:h2:mem:local;DB_CLOSE_DELAY=-1;MODE=Oracle
+hibernate:
+  dialect: org.hibernate.dialect.H2Dialect
+  show_sql: true
+  cache:
+    use_second_level_cache: false
+    use_query_cache: false
 test:
   logins:
     - environment: ENV1
@@ -45,12 +60,11 @@ test:
 security:
   permissions:
     - environment: ENV1
-      permission-names : TEST_MODULE, TEST_MODULE_TWO
+      permission-names: TEST_MODULE, TEST_MODULE_TWO
     - environment: ENV2
       permission-names: TEST_MODULE
     - environment: ENV3
       permission-names:
-
 ssh:
   default:
     port: 22

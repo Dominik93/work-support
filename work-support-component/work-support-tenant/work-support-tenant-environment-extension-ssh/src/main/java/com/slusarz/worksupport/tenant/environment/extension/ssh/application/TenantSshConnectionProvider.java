@@ -1,6 +1,7 @@
 package com.slusarz.worksupport.tenant.environment.extension.ssh.application;
 
 import com.slusarz.worksupport.commontypes.application.DefaultPropertiesHelper;
+import com.slusarz.worksupport.commontypes.application.SingleDefaultPropertiesHelper;
 import com.slusarz.worksupport.commontypes.application.provider.annotation.Provider;
 import com.slusarz.worksupport.commontypes.domain.Environment;
 import com.slusarz.worksupport.ssh.configuration.DefaultSshConfiguration;
@@ -47,7 +48,7 @@ public class TenantSshConnectionProvider implements SshConnectionPropertiesProvi
 
     private SshConnectionProperties toSshConnectionsProperties(SshConnectionConfig sshConnectionConfig) {
         DefaultPropertiesHelper<SshConnectionConfig, String> helper
-                = new DefaultPropertiesHelper<>(defaultSshConfiguration.getSshConnectionConfig(), sshConnectionConfig);
+                = new SingleDefaultPropertiesHelper<>(defaultSshConfiguration.getSshConnectionConfig(), sshConnectionConfig);
 
         return SshConnectionProperties.of(
                 helper.getOrDefault(SshConnectionConfig::getUser),

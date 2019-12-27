@@ -52,6 +52,11 @@
 
             <dependency>
                 <groupId>com.slusarz</groupId>
+                <artifactId>work-support-multitenancy-database</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
                 <artifactId>work-support-common-types</artifactId>
                 <version>${project.version}</version>
             </dependency>

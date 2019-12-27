@@ -1,6 +1,6 @@
 
-create schema test;
-CREATE TABLE test.CODE
+create schema TEST;
+CREATE TABLE TEST.CODE
 (
   ID VARCHAR(50) primary key,
   CODE VARCHAR(2000),

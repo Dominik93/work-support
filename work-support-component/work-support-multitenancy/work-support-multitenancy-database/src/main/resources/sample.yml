@@ -1,0 +1,28 @@
+
+database:
+    default:
+        username: sa
+        password:
+        driver-class-name:  org.h2.Driver
+    default-connections:
+      - database: TEST
+        driver-class-name: org.h2.Driver
+        username: sa
+        password: ""
+        schema: TEST
+    environments:
+        - environment: ENV1
+          connections:
+          - database: TEST_DB
+            url: jdbc:h2:mem:local;DB_CLOSE_DELAY=-1;MODE=Oracle
+            driver-class-name: org.h2.Driver
+            username: sa
+            password:
+            schema: TEST
+
+hibernate:
+    dialect: org.hibernate.dialect.H2Dialect
+    show_sql: true
+    cache:
+        use_second_level_cache: false
+        use_query_cache: false
