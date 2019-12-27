@@ -1,5 +1,6 @@
 spring:
   application:
+    version: '@project.version@'
     name: support-test
   h2:
     console:

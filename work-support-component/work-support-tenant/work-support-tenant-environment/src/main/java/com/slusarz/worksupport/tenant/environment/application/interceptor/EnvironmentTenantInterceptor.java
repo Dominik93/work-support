@@ -2,6 +2,7 @@ package com.slusarz.worksupport.tenant.environment.application.interceptor;
 
 import com.slusarz.worksupport.commontypes.domain.Environment;
 import com.slusarz.worksupport.commontypes.domain.TenantConstants;
+import com.slusarz.worksupport.tenant.environment.application.checker.EnvironmentTenantChecker;
 import com.slusarz.worksupport.tenant.environment.application.context.EnvironmentTenantContext;
 import com.slusarz.worksupport.tenant.environment.domain.EnvironmentTenantFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +13,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Objects;
 
 @Slf4j
 @Component
@@ -21,14 +21,17 @@ public class EnvironmentTenantInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private EnvironmentTenantFactory tenantFactory;
 
+    @Autowired
+    private EnvironmentTenantChecker environmentTenantChecker;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("Pre handling the request " + request.getContextPath() + request.getServletPath());
         String tenant = request.getHeader(TenantConstants.TENANT_HEADER_NAME);
 
-        if (Objects.nonNull(tenant)) {
+        if (environmentTenantChecker.check(tenant)) {
             Environment environmentTenant = tenantFactory.create(tenant);
-            log.info("Set environment tenant to [" + tenant + "]");
+            log.info("Set environment tenant to [" + environmentTenant + "]");
             EnvironmentTenantContext.setCurrentTenant(environmentTenant);
         } else {
             log.info("Environment tenant is absent. Default tenant will be used.");

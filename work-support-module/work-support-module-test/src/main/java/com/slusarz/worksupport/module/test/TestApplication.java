@@ -3,6 +3,7 @@ package com.slusarz.worksupport.module.test;
 import com.slusarz.worksupport.multitenancy.database.configuration.EnableMultitenantDatabase;
 import com.slusarz.worksupport.permission.configuration.EnablePermissionSecurity;
 import com.slusarz.worksupport.ssh.configuration.EnableSsh;
+import com.slusarz.worksupport.swagger.EnableSwagger;
 import com.slusarz.worksupport.tenant.database.configuration.EnableDatabaseTenant;
 import com.slusarz.worksupport.tenant.environment.configuration.EnableEnvironmentTenant;
 import com.slusarz.worksupport.tenant.environment.extension.permission.configuration.EnableEnvironmentTenantPermissionExtension;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Slf4j
 @EnableSsh
+@EnableSwagger
 @EnableEurekaClient
 @EnableEnvironmentTenant
 @EnablePermissionSecurity

@@ -22,6 +22,7 @@
         <jsch.version>0.1.54</jsch.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
+        <swagger-ui.version>2.6.1</swagger-ui.version>
     </properties>
 
 
@@ -49,7 +50,25 @@
                 <version>${jsch.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger-ui.version}</version>
+            </dependency>
 
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger-ui.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.slusarz</groupId>
+                <artifactId>work-support-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.slusarz</groupId>
                 <artifactId>work-support-multitenancy-database</artifactId>

@@ -17,6 +17,7 @@
         <module>work-support-init</module>
         <module>work-support-ssh</module>
         <module>work-support-multitenancy</module>
+        <module>work-support-swagger</module>
     </modules>
 
 </project>

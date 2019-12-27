@@ -1,5 +1,6 @@
 package com.slusarz.worksupport.module.context;
 
+import com.slusarz.worksupport.swagger.EnableSwagger;
 import com.slusarz.worksupport.tenant.environment.configuration.EnableEnvironmentTenant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Slf4j
+@EnableSwagger
 @EnableEurekaClient
 @EnableEnvironmentTenant
 @SpringBootApplication(scanBasePackages = "com.slusarz.worksupport.module.context")

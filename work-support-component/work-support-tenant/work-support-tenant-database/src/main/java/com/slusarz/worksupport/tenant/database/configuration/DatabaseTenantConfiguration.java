@@ -13,11 +13,11 @@ import javax.annotation.PostConstruct;
 public class DatabaseTenantConfiguration {
 
     @Value("${tenant.database.default}")
-    private String defaultDatabase;
+    private Database defaultDatabase;
 
     @PostConstruct
     public void initTenantContext() {
-        DatabaseTenantContext.init(Database.of(defaultDatabase));
+        DatabaseTenantContext.init(defaultDatabase);
     }
 
 }

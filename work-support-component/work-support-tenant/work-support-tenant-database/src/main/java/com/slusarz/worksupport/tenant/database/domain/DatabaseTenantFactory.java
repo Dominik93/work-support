@@ -4,11 +4,13 @@ package com.slusarz.worksupport.tenant.database.domain;
 import com.slusarz.worksupport.commontypes.domain.Database;
 import com.slusarz.worksupport.commontypes.domain.TenantConstants;
 import com.slusarz.worksupport.tenant.database.application.validator.DatabaseTenantValidator;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@AllArgsConstructor
+@Component
 public class DatabaseTenantFactory {
 
+    @Autowired
     private DatabaseTenantValidator databaseTenantValidator;
 
     public Database create(String tenant) {
