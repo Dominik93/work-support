@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8074
   address: 127.0.0.1
 spring:
   application:
@@ -15,17 +15,14 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     preferIpAddress: true
 zuul:
-  prefix: /support
+  prefix: /work-support
   routes:
-    test-service:
-      path: /test/**
-      serviceId: support-test
     sql-service:
-      path: /sql/**
+      path: /sql-executor/**
       serviceId: support-sql-executor
     script-service:
-      path: /script/**
-      serviceId: support-script
+      path: /script-executor/**
+      serviceId: support-script-executor
     log-service:
       path: /log/**
       serviceId: support-log

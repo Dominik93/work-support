@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: support-web-host
+
+server:
+  port: 8080
+  contextPath: /
+  address: localhost
