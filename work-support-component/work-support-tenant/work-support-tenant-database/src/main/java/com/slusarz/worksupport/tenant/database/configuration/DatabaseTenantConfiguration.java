@@ -1,8 +1,7 @@
 package com.slusarz.worksupport.tenant.database.configuration;
 
-import com.slusarz.worksupport.commontypes.domain.Database;
 import com.slusarz.worksupport.tenant.database.application.context.DatabaseTenantContext;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,12 +11,12 @@ import javax.annotation.PostConstruct;
 @ComponentScan("com.slusarz.worksupport.tenant.database")
 public class DatabaseTenantConfiguration {
 
-    @Value("${tenant.database.default}")
-    private Database defaultDatabase;
+    @Autowired
+    private DatabaseConfiguration databaseConfiguration;
 
     @PostConstruct
     public void initTenantContext() {
-        DatabaseTenantContext.init(defaultDatabase);
+        DatabaseTenantContext.init(databaseConfiguration.getDefaultDatabase());
     }
 
 }

@@ -15,6 +15,6 @@ public class LogActions {
 
     private boolean liveLog;
 
-    private boolean jiraBug;
+    private boolean packageLiveLog;
 
 }

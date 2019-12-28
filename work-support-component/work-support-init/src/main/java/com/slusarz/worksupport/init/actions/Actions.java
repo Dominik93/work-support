@@ -16,6 +16,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Actions {
 
-    private LogActions logActions;
+    private LogActions logActions = LogActions.ofDefault();
 
 }

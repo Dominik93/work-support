@@ -2,7 +2,7 @@ package com.slusarz.worksupport.multitenancy.database.configuration.tenant;
 
 import com.slusarz.worksupport.commontypes.application.provider.annotation.Provide;
 import com.slusarz.worksupport.commontypes.application.provider.annotation.Provider;
-import com.slusarz.worksupport.multitenancy.database.configuration.DataSourceProvider;
+import com.slusarz.worksupport.multitenancy.database.configuration.datasource.DataSourceProvider;
 import org.hibernate.engine.jdbc.connections.spi.AbstractDataSourceBasedMultiTenantConnectionProviderImpl;
 
 import javax.sql.DataSource;

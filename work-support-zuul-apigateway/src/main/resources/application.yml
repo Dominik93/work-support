@@ -22,7 +22,7 @@ zuul:
       serviceId: support-test
     sql-service:
       path: /sql/**
-      serviceId: support-sql
+      serviceId: support-sql-executor
     script-service:
       path: /script/**
       serviceId: support-script

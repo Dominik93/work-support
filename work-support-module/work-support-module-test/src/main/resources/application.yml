@@ -27,7 +27,7 @@ tenant:
   environment:
     available: ENV1, ENV2, ENV3
     default: ENV1
-database:
+multitenant-database:
   default:
     driver-class-name: org.h2.Driver
   default-connections:

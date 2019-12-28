@@ -1,4 +1,4 @@
-package com.slusarz.worksupport.multitenancy.database.configuration;
+package com.slusarz.worksupport.multitenancy.database.configuration.multitenant;
 
 import com.slusarz.worksupport.multitenancy.database.configuration.config.DataSourceConfig;
 import com.slusarz.worksupport.multitenancy.database.configuration.config.EnvironmentConfig;
@@ -12,8 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties("database")
-public class DatabaseConfiguration {
+@ConfigurationProperties("multitenant-database")
+public class MultitenantDatabaseConfiguration {
 
     private List<EnvironmentConfig> environments;
 

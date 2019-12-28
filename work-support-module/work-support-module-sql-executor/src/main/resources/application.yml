@@ -1,0 +1,81 @@
+spring:
+  application:
+    version: '@project.version@'
+    name: support-sql-executor
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+server:
+  port: 0
+  contextPath: /sql-executor
+  address: localhost
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+tenant:
+  database:
+    available: TEST, TEST_TWO
+    default: TEST
+  environment:
+    available: ENV1, ENV2, ENV3
+    default: ENV1
+multitenant-database:
+  default:
+    driver-class-name: org.h2.Driver
+  default-connections:
+    - database: TEST
+      username: sa
+      password: ""
+      schema: TEST
+  environments:
+    - environment: ENV1
+      connections:
+        - database: TEST
+          url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=Oracle
+        - database: TEST_TWO
+          username: sa
+          password: ""
+          url: jdbc:h2:mem:local;DB_CLOSE_DELAY=-1;MODE=Oracle
+    - environment: ENV2
+      connections:
+        - database: TEST
+          url: jdbc:h2:mem:local;DB_CLOSE_DELAY=-1;MODE=Oracle
+hibernate:
+  dialect: org.hibernate.dialect.H2Dialect
+  show_sql: true
+  cache:
+    use_second_level_cache: false
+    use_query_cache: false
+security:
+  permissions:
+    - environment: ENV1
+      permission-names: SQL_EXECUTOR_MODULE
+    - environment: ENV2
+      permission-names: SQL_EXECUTOR_MODULE, SQL_MODIFICATION_QUERY
+    - environment: ENV3
+      permission-names:
+sql:
+  metadatas:
+    - name: unique_name
+      sql: SELECT CODE.CODE FROM CODE WHERE CODE.LOGIN = :login
+      description: select code by login
+      database: TEST
+      type: SELECT
+    - sql: SELECT CODE.ID FROM CODE WHERE CODE.LOGIN = :login
+      name: uniqie_name_2
+      description: select id by login
+      database: TEST
+      type: SELECT
+    - sql: SELECT CODE.ID FROM CODE WHERE CODE.LOGIN = :login
+      name: uniqie_name_3
+      description: select id by login
+      database: TEST_TWO
+      type: SELECT

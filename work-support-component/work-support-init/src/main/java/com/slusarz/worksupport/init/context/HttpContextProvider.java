@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/context")
 public interface HttpContextProvider extends ContextProvider{
 
-    @PostMapping(value = "/init", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/init", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     ModuleInit init(@RequestBody ModuleInit moduleInit);
 
 }

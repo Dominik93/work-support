@@ -15,9 +15,9 @@ public class Config {
 
     private ModuleConfig log;
 
-    private ModuleConfig script;
+    private ModuleConfig scriptExecutor;
 
-    private ModuleConfig sql;
+    private ModuleConfig sqlExecutor;
 
     private ModuleConfig test;
 }

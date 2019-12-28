@@ -1,6 +1,6 @@
-package com.slusarz.worksupport.module.context.configuration;
+package com.slusarz.worksupport.module.sqlexecutor.configuration.converter;
 
-import com.slusarz.worksupport.module.context.domain.ExternalModule;
+import com.slusarz.worksupport.module.sqlexecutor.domain.name.SqlName;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -9,12 +9,12 @@ import java.util.Objects;
 
 @Component
 @ConfigurationPropertiesBinding
-public class ExternalModuleConverter implements Converter<String, ExternalModule> {
+public class SqlNameConverter implements Converter<String, SqlName> {
     @Override
-    public ExternalModule convert(String source) {
+    public SqlName convert(String source) {
         if (Objects.isNull(source)) {
             return null;
         }
-        return ExternalModule.of(source);
+        return SqlName.of(source);
     }
 }

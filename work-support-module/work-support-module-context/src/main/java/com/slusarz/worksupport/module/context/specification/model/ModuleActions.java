@@ -15,8 +15,8 @@ public class ModuleActions {
 
     private boolean log;
 
-    private boolean sql;
+    private boolean sqlExecutor;
 
-    private boolean script;
+    private boolean scriptExecutor;
 
 }

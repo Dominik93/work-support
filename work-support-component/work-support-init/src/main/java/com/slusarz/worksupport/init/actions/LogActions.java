@@ -8,6 +8,10 @@ public class LogActions {
 
     private boolean liveLog;
 
-    private boolean jiraBug;
+    private boolean packageLiveLog;
+
+    public static LogActions ofDefault() {
+        return new LogActions(false, false);
+    }
 
 }

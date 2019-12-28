@@ -16,11 +16,11 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Config {
 
-    private ModuleConfig log;
+    private ModuleConfig log = ModuleConfig.ofDefault();
 
-    private ModuleConfig script;
+    private ModuleConfig scriptExecutor = ModuleConfig.ofDefault();
 
-    private ModuleConfig sql;
+    private ModuleConfig sqlExecutor = ModuleConfig.ofDefault();
 
-    private ModuleConfig test;
+    private ModuleConfig test = ModuleConfig.ofDefault();
 }

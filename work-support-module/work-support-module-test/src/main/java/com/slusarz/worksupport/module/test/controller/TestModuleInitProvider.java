@@ -1,6 +1,7 @@
 package com.slusarz.worksupport.module.test.controller;
 
 import com.slusarz.worksupport.commontypes.application.provider.annotation.Provide;
+import com.slusarz.worksupport.commontypes.domain.Database;
 import com.slusarz.worksupport.commontypes.domain.Environment;
 import com.slusarz.worksupport.commontypes.extension.environment.EnvironmentProvider;
 import com.slusarz.worksupport.init.config.ModuleConfig;
@@ -22,7 +23,8 @@ public class TestModuleInitProvider implements HttpContextProvider {
     public ModuleInit init(@RequestBody ModuleInit moduleInit) {
         Environment environment = Environment.of(environmentProvider.provide().getName());
         List<Environment> list = Collections.singletonList(environment);
-        ModuleConfig test = ModuleConfig.of(list, environment, Collections.emptyList(), null);
+        ModuleConfig test = ModuleConfig.of(list, environment, Collections.singletonList(Database.of("TEST")), Database.of("TEST"));
+        moduleInit.getModuleActions().setTest(true);
         moduleInit.getConfig().setTest(test);
         return moduleInit;
     }

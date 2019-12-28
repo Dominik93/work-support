@@ -1,19 +1,19 @@
-package com.slusarz.worksupport.multitenancy.database.configuration;
+package com.slusarz.worksupport.multitenancy.database.configuration.multitenant;
 
 import com.slusarz.worksupport.multitenancy.database.configuration.config.DataSourceConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DefaultDatabaseConfiguration {
+public class DefaultMultitenantDatabaseConfiguration {
 
-    @Value("${database.default.driver-class-name:#{null}}")
+    @Value("${multitenant-database.default.driver-class-name:#{null}}")
     private String driverClassName;
 
-    @Value("${database.default.username:#{null}}")
+    @Value("${multitenant-database.default.username:#{null}}")
     private String username;
 
-    @Value("${database.default.password:#{null}}")
+    @Value("${multitenant-database.default.password:#{null}}")
     private String password;
 
     public DataSourceConfig getDataSourceConfig() {

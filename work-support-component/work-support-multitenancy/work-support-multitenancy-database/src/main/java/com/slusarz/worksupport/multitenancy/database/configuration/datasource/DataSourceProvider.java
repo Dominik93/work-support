@@ -1,4 +1,4 @@
-package com.slusarz.worksupport.multitenancy.database.configuration;
+package com.slusarz.worksupport.multitenancy.database.configuration.datasource;
 
 import com.slusarz.worksupport.commontypes.application.DefaultPropertiesHelper;
 import com.slusarz.worksupport.commontypes.application.MultipleDefaultPropertiesHelper;
@@ -6,6 +6,8 @@ import com.slusarz.worksupport.commontypes.application.provider.annotation.Provi
 import com.slusarz.worksupport.commontypes.domain.Database;
 import com.slusarz.worksupport.multitenancy.database.configuration.config.DataSourceConfig;
 import com.slusarz.worksupport.multitenancy.database.configuration.config.EnvironmentConfig;
+import com.slusarz.worksupport.multitenancy.database.configuration.multitenant.DefaultMultitenantDatabaseConfiguration;
+import com.slusarz.worksupport.multitenancy.database.configuration.multitenant.MultitenantDatabaseConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -25,25 +27,25 @@ public class DataSourceProvider {
     private Map<String, DataSource> dataSources;
 
     @Autowired
-    private DatabaseConfiguration databaseConfiguration;
+    private MultitenantDatabaseConfiguration multitenantDatabaseConfiguration;
 
     @Autowired
-    private DefaultDatabaseConfiguration defaultDatabaseConfiguration;
+    private DefaultMultitenantDatabaseConfiguration defaultMultitenantDatabaseConfiguration;
 
     @PostConstruct
     public void dataSources() {
         Map<String, DataSource> result = new HashMap<>();
         Map<Database, DataSourceConfig> defaultDatabaseConfigs
-                = databaseConfiguration.getDefaultConnections().stream()
+                = multitenantDatabaseConfiguration.getDefaultConnections().stream()
                 .collect(Collectors.toMap(DataSourceConfig::getDatabase, Function.identity()));
 
-        for (EnvironmentConfig environment : databaseConfiguration.getEnvironments()) {
+        for (EnvironmentConfig environment : multitenantDatabaseConfiguration.getEnvironments()) {
             for (DataSourceConfig connection : environment.getConnections()) {
 
                 DataSourceConfig dataSourceConfig = defaultDatabaseConfigs.get(connection.getDatabase());
 
                 DefaultPropertiesHelper<DataSourceConfig, String> helper
-                        = new MultipleDefaultPropertiesHelper<>(connection, Arrays.asList(defaultDatabaseConfiguration.getDataSourceConfig(), dataSourceConfig));
+                        = new MultipleDefaultPropertiesHelper<>(connection, Arrays.asList(defaultMultitenantDatabaseConfiguration.getDataSourceConfig(), dataSourceConfig));
 
                 DriverManagerDataSource dataSource = new DriverManagerDataSource();
                 dataSource.setDriverClassName(helper.getOrDefault(DataSourceConfig::getDriverClassName));
