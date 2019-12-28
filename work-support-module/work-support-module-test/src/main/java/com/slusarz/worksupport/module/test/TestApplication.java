@@ -1,7 +1,5 @@
 package com.slusarz.worksupport.module.test;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.slusarz.worksupport.init.context.ModuleInit;
 import com.slusarz.worksupport.multitenancy.database.configuration.EnableMultitenantDatabase;
 import com.slusarz.worksupport.permission.configuration.EnablePermissionSecurity;
 import com.slusarz.worksupport.ssh.configuration.EnableSsh;
@@ -14,11 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import java.io.IOException;
 
 @Slf4j
 @EnableSsh
@@ -43,19 +38,6 @@ public class TestApplication extends WebSecurityConfigurerAdapter {
         security.httpBasic().disable();
         security.authorizeRequests().anyRequest().permitAll();
         security.csrf().disable(); // TODO FIXME
-    }
-
-    @Bean
-    public String init(ObjectMapper objectMapper) throws IOException {
-
-        ModuleInit moduleInit = ModuleInit.empty();
-        String s = objectMapper.writeValueAsString(moduleInit);
-        log.info(s);
-
-        ModuleInit moduleInit1 = objectMapper.readValue(s, ModuleInit.class);
-log.info(moduleInit1.toString());
-
-        return "";
     }
 
 }
