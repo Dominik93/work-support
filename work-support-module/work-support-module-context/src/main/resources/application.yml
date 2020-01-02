@@ -16,6 +16,9 @@ eureka:
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 tenant:
+  database:
+    any: true
+    default: TEST
   environment:
     any: true
     default: ENV1

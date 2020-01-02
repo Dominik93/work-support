@@ -1,0 +1,36 @@
+{
+    "actions": {
+        "logActions": {
+            "liveLog": false,
+            "packageLiveLog": false
+        }
+    },
+    "moduleActions": {
+        "log": false,
+        "sqlExecutor": true,
+        "scriptExecutor": false
+    },
+    "config": {
+        "environments": [
+            "ENV1",
+            "ENV2",
+            "ENV3"
+        ],
+        "defaultEnvironment": "ENV1",
+        "log": {
+            "databases": [],
+            "defaultDatabase": null
+        },
+        "sqlExecutor": {
+            "databases": [
+                "TEST",
+                "TEST_TWO"
+            ],
+            "defaultDatabase": "TEST"
+        },
+        "scriptExecutor": {
+            "databases": [],
+            "defaultDatabase": null
+        }
+    }
+}

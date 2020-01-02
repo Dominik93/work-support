@@ -1,0 +1,24 @@
+{
+    "sqlMetadatas": [
+      {
+        "name": "unique_name",
+        "description": "select code by login",
+        "parameters": [
+          {
+            "name": "login",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "name": "uniqie_name_2",
+        "description": "select id by login",
+        "parameters": [
+          {
+            "name": "login",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  }

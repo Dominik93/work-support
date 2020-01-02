@@ -1,0 +1,26 @@
+{
+    "headers": [
+        "header_1",
+        "header_2"
+    ],
+    "rows": [
+        {
+            "values": [
+                "value_1_1",
+                "value_1_2"
+            ]
+        },
+        {
+            "values": [
+                "value_2_1",
+                "value_2_2"
+            ]
+        },
+        {
+            "values": [
+                "value_3_1",
+                "value_3_2"
+            ]
+        }
+    ]
+}

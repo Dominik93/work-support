@@ -1,0 +1,60 @@
+<div class="generic-container" style='margin-left: 0%; position: absolute; width: 100%;'>
+
+  <div class="card card-default">
+    <div class="card-header"><span class="lead">Log</span></div>
+    <div class="card-body">
+      <div class="formcontainer">
+        <div class="form-horizontal">
+          <div class="row">
+            <mat-form-field>
+              <mat-label>Applications</mat-label>
+              <mat-select [formControl]="applications" multiple (selectionChange)=applicationChange($event)>
+                <mat-optgroup *ngFor="let group of applicationGroups" [label]="group.name">
+                  <mat-option *ngFor="let apps of group.applications" [value]="apps">{{apps}}</mat-option>
+                </mat-optgroup>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="form-group col-md-2">
+              Current log <mat-checkbox [(ngModel)]="current" color="primary"></mat-checkbox>
+            </div>
+            <div class="form-group col-md-3">
+              <mat-form-field>
+                <input matInput [disabled]="current" [matDatepicker]="picker" placeholder="Choose a date"
+                  [formControl]="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+
+            <div class="form-group col-md-2">
+              <mat-select [disabled]="current" placeholder="From" [(ngModel)]="fromTime"
+                (selectionChange)=fromTimeChange($event)>
+                <mat-option *ngFor="let time of times" [value]="time">
+                  {{ time }}
+                </mat-option>
+              </mat-select>
+            </div>
+            <div class="form-group col-md-2">
+              <mat-select [disabled]="current" placeholder="To" [(ngModel)]="toTime">
+                <mat-option *ngFor="let time of times" [value]="time">
+                  {{ time }}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <hr>
+  <app-log-downloader [timeFrom]="fromTime" [current]="current" [timeTo]="toTime" [applications]="apps" [date]="date">
+  </app-log-downloader>
+  <hr>
+
+</div>

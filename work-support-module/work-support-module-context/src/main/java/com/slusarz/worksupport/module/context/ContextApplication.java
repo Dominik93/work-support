@@ -1,6 +1,7 @@
 package com.slusarz.worksupport.module.context;
 
 import com.slusarz.worksupport.swagger.EnableSwagger;
+import com.slusarz.worksupport.tenant.database.configuration.EnableDatabaseTenant;
 import com.slusarz.worksupport.tenant.environment.configuration.EnableEnvironmentTenant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Slf4j
 @EnableSwagger
 @EnableEurekaClient
+@EnableDatabaseTenant
 @EnableEnvironmentTenant
 @SpringBootApplication(scanBasePackages = "com.slusarz.worksupport.module.context")
 public class ContextApplication extends WebSecurityConfigurerAdapter {

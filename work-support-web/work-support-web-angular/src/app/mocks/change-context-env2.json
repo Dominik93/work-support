@@ -1,0 +1,13 @@
+{
+    "actions": {
+        "logActions": {
+            "liveLog": false,
+            "packageLiveLog": false
+        }
+    },
+    "moduleActions": {
+        "log": false,
+        "sqlExecutor": false,
+        "scriptExecutor": true
+    }
+}

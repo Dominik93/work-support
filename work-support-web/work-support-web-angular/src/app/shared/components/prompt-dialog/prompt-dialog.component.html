@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+  <p>{{question}}</p>
+  <mat-form-field *ngIf="isEmptyOptions()">
+    <input matInput [(ngModel)]="data.answer">
+  </mat-form-field>
+  <mat-form-field *ngIf="!isEmptyOptions()">
+    <mat-select [(ngModel)]="data.answer">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.answer" cdkFocusInitial>Ok</button>
+</div>

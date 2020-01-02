@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: "http://ip:8074/"
+  mock: false,
+  baseUrl: "http://ip:8074"
 };

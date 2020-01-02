@@ -1,0 +1,15 @@
+<mat-form-field *ngIf="contextual">
+  <mat-select style="font-size: 10px" [(ngModel)]="selectedEnvironment" (selectionChange)="onEnvironmentChange()">
+    <mat-option  style="font-size: 10px" *ngFor="let environment of environments" [value]="environment" >
+      {{ environment }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field *ngIf="showDatabase">
+  <mat-select style="font-size: 10px" [(ngModel)]="selectedDatabase" (selectionChange)="onDatabaseChange()">
+    <mat-option style="font-size: 10px" *ngFor="let database of databases" [value]="database">
+      {{ database }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

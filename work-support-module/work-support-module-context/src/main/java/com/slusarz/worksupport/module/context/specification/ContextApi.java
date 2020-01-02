@@ -1,6 +1,7 @@
 package com.slusarz.worksupport.module.context.specification;
 
 import com.slusarz.worksupport.module.context.specification.model.ChangeContextRequest;
+import com.slusarz.worksupport.module.context.specification.model.ChangeContextResponse;
 import com.slusarz.worksupport.module.context.specification.model.InitResponse;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,6 @@ public interface ContextApi {
     InitResponse init();
 
     @PostMapping(value = "/change", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    InitResponse change(ChangeContextRequest changeContextRequest);
+    ChangeContextResponse change(ChangeContextRequest changeContextRequest);
 
 }

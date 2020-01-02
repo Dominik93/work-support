@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localost:8074/"
+  mock: false,
+  baseUrl: "http://localost:8074"
 };
 
 /*

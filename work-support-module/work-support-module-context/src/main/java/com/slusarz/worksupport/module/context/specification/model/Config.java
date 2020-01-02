@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Builder
@@ -13,11 +15,14 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Config {
 
+    private List<String> environments;
+
+    private String defaultEnvironment;
+
     private ModuleConfig log;
 
     private ModuleConfig scriptExecutor;
 
     private ModuleConfig sqlExecutor;
 
-    private ModuleConfig test;
 }

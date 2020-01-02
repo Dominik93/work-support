@@ -1,0 +1,18 @@
+{
+    "scripts": [
+        {
+            "name": "unique_name",
+            "monitoring": true,
+            "options": [
+                {
+                    "option": "opt1",
+                    "value": null
+                },
+                {
+                    "option": "opt2",
+                    "value": null
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+<div class="card card-default">
+  <!-- Default card contents -->
+  <div class="card-header"><span class="lead">Log donwloader</span></div>
+  <div class="card-body">
+    <div class="formcontainer">
+      <div class="form-horizontal">
+        <div class="row">
+          <div class="form-group col-md-2">
+            Only Exception? <mat-checkbox [(ngModel)]="onlyExcpetions" color="primary"></mat-checkbox>
+          </div>
+          <mat-form-field class="col-md-2">
+            <input matInput [(ngModel)]="bufferSize" placeholder="Buffer">
+          </mat-form-field>
+        </div>
+
+        <div class="row" *ngFor="let query of queries; last as last; index as i; trackBy:customTrackBy">
+          <mat-form-field class="col-md-10">
+            <input matInput [(ngModel)]="queries[i]" placeholder="Filtr by query">
+          </mat-form-field>
+          <div class="form-group col-md-2">
+            <button mat-raised-button color="primary" *ngIf="last" (click)="addQuery()">Add</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <button mat-raised-button color="primary" (click)="onDownload()">Download</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <button mat-raised-button color="primary" (click)="onLiveLog()" [disabled]="!haveLiveLog">Live log</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

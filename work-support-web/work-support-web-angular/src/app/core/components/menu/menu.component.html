@@ -1,0 +1,12 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <button mat-raised-button color="primary" (click)="redirect('#')">WORK-SUPPORT</button>
+    <button mat-raised-button color="accent" *ngIf="log" routerLink="/log">Log</button>
+    <button mat-raised-button color="accent" *ngIf="sqlExecutor" routerLink="/sql-executor">Sql executor</button>
+    <button mat-raised-button color="accent" *ngIf="scriptExecutor" routerLink="/script-executor">Script executor</button>
+      
+    <span class="menu-fill-remaining-space"></span>
+    <app-tenant></app-tenant>
+  </mat-toolbar-row>
+
+</mat-toolbar>

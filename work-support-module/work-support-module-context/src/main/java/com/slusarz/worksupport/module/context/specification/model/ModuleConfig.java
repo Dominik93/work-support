@@ -15,10 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 public class ModuleConfig {
 
-    private List<String> environments;
-
-    private String defaultEnvironment;
-
     private List<String> databases;
 
     private String defaultDatabase;
