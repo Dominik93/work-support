@@ -18,6 +18,7 @@
         <module>work-support-ssh</module>
         <module>work-support-multitenancy</module>
         <module>work-support-swagger</module>
+        <module>work-support-file-manager</module>
     </modules>
 
 </project>

@@ -1,0 +1,53 @@
+spring:
+  application:
+    version: '@project.version@'
+    name: support-script-executor
+server:
+  port: 0
+  contextPath: /script-executor
+  address: localhost
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+tenant:
+  environment:
+    available: ENV1, ENV2, ENV3
+    default: ENV1
+security:
+  permissions:
+    - environment: ENV1
+      permission-names: SCRIPT_EXECUTOR_MODULE
+    - environment: ENV2
+      permission-names: SCRIPT_EXECUTOR_MODULE
+    - environment: ENV3
+      permission-names:
+script-executor:
+  script-directory: 'c:/script/'
+  executed-script-directory: 'c:/script/executed/'
+  scripts:
+    - name: Test script
+      environments: ENV1,ENV2
+      script: name.bat
+      arguments: arg1,arg2
+      options: opt1
+      connection-type: JAVA
+      monitoring: true
+ssh:
+  default:
+    port: 22
+    password: appuser
+    user: appuser
+  connections:
+    - environment: ENV1
+      user: user
+      ip: 127.0.0.1
+      password: pass
+    - environment: ENV2
+      ip: 127.0.0.2

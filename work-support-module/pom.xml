@@ -15,6 +15,7 @@
         <module>work-support-module-context</module>
         <module>work-support-module-test</module>
         <module>work-support-module-sql-executor</module>
+        <module>work-support-module-script-executor</module>
     </modules>
 
 
