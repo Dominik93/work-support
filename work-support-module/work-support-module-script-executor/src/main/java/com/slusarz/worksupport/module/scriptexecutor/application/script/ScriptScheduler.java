@@ -1,9 +1,10 @@
 package com.slusarz.worksupport.module.scriptexecutor.application.script;
 
 import com.slusarz.worksupport.filemanager.application.remover.FileRemover;
-import com.slusarz.worksupport.filemanager.domain.directorypath.DirectoryPath;
-import com.slusarz.worksupport.filemanager.domain.filename.FileName;
-import com.slusarz.worksupport.filemanager.domain.remove.FileToRemove;
+import com.slusarz.worksupport.filemanager.domain.file.File;
+import com.slusarz.worksupport.filemanager.domain.file.FileName;
+import com.slusarz.worksupport.filemanager.domain.file.IFile;
+import com.slusarz.worksupport.filemanager.domain.path.DirectoryPath;
 import com.slusarz.worksupport.module.scriptexecutor.configuration.ScriptExecutorConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,20 +36,20 @@ public class ScriptScheduler {
     @Scheduled(cron = "0 */10 * * * *")
     public void removeOldFiles() throws IOException {
         Stream<Path> pathStream = Files.walk(Paths.get(scriptExecutorConfiguration.getDirectoryExecuted()));
-        List<FileToRemove> fileToRemoves = collectFilesToRemove(pathStream);
+        List<IFile> files = collectFilesToRemove(pathStream);
         LocalDateTime localDateTime = LocalDateTime.now().minusDays(1);
-        fileRemover.deleteFilesCreatedBefore(fileToRemoves, localDateTime);
+        fileRemover.deleteFilesCreatedBefore(files, localDateTime);
     }
 
-    private List<FileToRemove> collectFilesToRemove(Stream<Path> pathStream) {
+    private List<IFile> collectFilesToRemove(Stream<Path> pathStream) {
         return pathStream.filter(Files::isRegularFile)
                 .map(this::toFileToRemove)
                 .collect(Collectors.toList());
     }
 
-    private FileToRemove toFileToRemove(Path path) {
+    private File toFileToRemove(Path path) {
         FileName name = FileName.of(path.getFileName().toString());
         DirectoryPath directoryPath = DirectoryPath.of(path.getParent().toString());
-        return FileToRemove.of(name, directoryPath);
+        return File.of(name, directoryPath);
     }
 }

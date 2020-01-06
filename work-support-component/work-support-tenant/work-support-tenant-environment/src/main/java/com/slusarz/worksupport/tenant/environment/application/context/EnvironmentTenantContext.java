@@ -15,7 +15,6 @@ public class EnvironmentTenantContext {
     @Setter
     private static Environment defaultEnvironment;
 
-
     public static void init(Environment environment) {
         if (Objects.nonNull(defaultEnvironment)) {
             throw new RuntimeException("Environment tenant already initialized");

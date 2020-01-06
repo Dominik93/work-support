@@ -16,6 +16,7 @@
         <module>work-support-module-test</module>
         <module>work-support-module-sql-executor</module>
         <module>work-support-module-script-executor</module>
+        <module>work-support-module-log-downloader</module>
     </modules>
 
 

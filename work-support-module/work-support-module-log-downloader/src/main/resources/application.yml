@@ -1,0 +1,76 @@
+spring:
+  application:
+    version: '@project.version@'
+    name: support-log-downloader
+server:
+  port: 0
+  contextPath: /script-executor
+  address: localhost
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+tenant:
+  environment:
+    available: ENV1, ENV2, ENV3
+    default: ENV1
+security:
+  permissions:
+    - environment: ENV1
+      permission-names: LOG_DOWNLOADER_MODULE
+    - environment: ENV2
+      permission-names: LOG_DOWNLOADER_MODULE
+    - environment: ENV3
+      permission-names:
+ssh:
+  default:
+    port: 22
+    password: appuser
+    user: appuser
+  connections:
+    - environment: ENV1
+      user: user
+      ip: 127.0.0.1
+      password: pass
+    - environment: ENV2
+      ip: 127.0.0.2
+log-downloader:
+  dir: C:/log/
+  output:
+    dir: C:/log/
+  default:
+    log-file:
+      date-format: yyyy-MM-dd-HH
+      log-format: .log
+      compress-format: .gz
+      concat-character: .
+  environments:
+    - environment: ENV1
+      servers: srv1/tst, srv2/tst
+      connection: HTTP
+      path: opt/logs
+    - environment: ENV2
+      servers: srv1
+      connection: SSH
+      path: opt/logs
+  applications:
+    - name: application name
+      tag: SOME_TAG
+      environments: ENV1, ENV2
+      log-file:
+        file-name: app_name
+        date-format: yyyy-MM-dd-HH
+        log-format: .log
+        compress-format: .gz
+        concat-character: .
+    - name: other application name
+      tag: OTHER_TAG
+      environments: ENV1
+      log-file:
+        file-name: other_app_name

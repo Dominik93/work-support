@@ -76,6 +76,16 @@
             </dependency>
             <dependency>
                 <groupId>com.slusarz</groupId>
+                <artifactId>work-support-async</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
+                <artifactId>work-support-file-manager</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
                 <artifactId>work-support-common-types</artifactId>
                 <version>${project.version}</version>
             </dependency>

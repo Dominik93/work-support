@@ -1,7 +1,8 @@
 package com.slusarz.worksupport.filemanager.application.remover;
 
+import com.slusarz.worksupport.filemanager.application.converter.FileConverter;
 import com.slusarz.worksupport.filemanager.application.filter.FileOlderThanFilter;
-import com.slusarz.worksupport.filemanager.domain.remove.FileToRemove;
+import com.slusarz.worksupport.filemanager.domain.file.IFile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,26 +19,26 @@ public class FileRemoverService implements FileRemover {
     @Autowired
     private FileOlderThanFilter fileOlderThanFilter;
 
+    @Autowired
+    private FileConverter fileConverter;
+
     @Override
-    public void deleteFilesCreatedBefore(List<FileToRemove> files, LocalDateTime localDateTime) {
-        List<FileToRemove> fileToRemoves = fileOlderThanFilter.filter(files, localDateTime);
+    public void deleteFilesCreatedBefore(List<IFile> files, LocalDateTime localDateTime) {
+        List<IFile> fileToRemoves = fileOlderThanFilter.filter(files, localDateTime);
         deleteFiles(fileToRemoves);
     }
 
     @Override
-    public void deleteFiles(final List<FileToRemove> files) {
-        for (FileToRemove file : files) {
-            deleteFile(file);
-        }
+    public void deleteFiles(final List<IFile> files) {
+        files.forEach(this::deleteFile);
     }
 
-    private void deleteFile(FileToRemove file) {
-        log.info("Delete file " + file);
+    private void deleteFile(IFile file) {
         try {
-            Files.delete(file.getPath());
+            log.info("Delete file [" + file + "]");
+            Files.delete(fileConverter.toPath(file));
         } catch (IOException e) {
-            e.printStackTrace();
-            log.info("Cant delete file " + file);
+            log.info("Can`t delete file [" + file + "]. " + e.getMessage());
         }
     }
 

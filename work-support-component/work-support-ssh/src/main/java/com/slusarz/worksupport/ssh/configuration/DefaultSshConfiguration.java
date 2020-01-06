@@ -7,16 +7,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DefaultSshConfiguration {
 
-    @Value("${ssh.default.ip:null}")
+    @Value("${ssh.default.ip:#{null}}")
     private String ip;
 
-    @Value("${ssh.default.port:null}")
+    @Value("${ssh.default.port:#{null}}")
     private String port;
 
-    @Value("${ssh.default.user:null}")
+    @Value("${ssh.default.user:#{null}}")
     private String user;
 
-    @Value("${ssh.default.password:null}")
+    @Value("${ssh.default.password:#{null}}")
     private String password;
 
     public SshConnectionConfig getSshConnectionConfig() {

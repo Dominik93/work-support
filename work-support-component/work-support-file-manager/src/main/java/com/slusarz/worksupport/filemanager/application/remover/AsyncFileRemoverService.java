@@ -1,6 +1,6 @@
 package com.slusarz.worksupport.filemanager.application.remover;
 
-import com.slusarz.worksupport.filemanager.domain.remove.FileToRemove;
+import com.slusarz.worksupport.filemanager.domain.file.IFile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,13 +20,13 @@ public class AsyncFileRemoverService implements FileRemover {
 
     @Async
     @Override
-    public void deleteFiles(final List<FileToRemove> files) {
+    public void deleteFiles(final List<IFile> files) {
         fileRemover.deleteFiles(files);
     }
 
     @Async
     @Override
-    public void deleteFilesCreatedBefore(List<FileToRemove> files, LocalDateTime localDateTime) {
+    public void deleteFilesCreatedBefore(List<IFile> files, LocalDateTime localDateTime) {
         fileRemover.deleteFilesCreatedBefore(files, localDateTime);
     }
 
