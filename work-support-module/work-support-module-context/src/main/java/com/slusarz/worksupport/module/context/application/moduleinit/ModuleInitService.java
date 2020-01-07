@@ -43,10 +43,10 @@ public class ModuleInitService {
             String path = ContextPathProvider.path(externalModule.getName());
             HttpEntity<ModuleInit> request = httpEntityCreator.create(moduleInit);
             ModuleInit init = restTemplate.postForObject(path, request, ModuleInit.class);
-            log.info("Init from " + externalModule + ": " + init);
+            log.info("Init from [" + externalModule + " ] response [" + init + "]");
             return Optional.ofNullable(init);
         } catch (Exception e) {
-            log.info("Error while collect context from [" + externalModule.getName() + "]. Reason: " + e.getMessage());
+            log.info("Error while call init from [" + externalModule.getName() + "]. Reason [" + e.getMessage() + "]");
         }
         return Optional.empty();
     }

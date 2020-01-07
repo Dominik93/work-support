@@ -22,7 +22,7 @@ public class ApplicationsConfiguration {
 
     public EnvironmentConfig getEnvironment(Environment environment) {
         return environments.stream()
-                .collect(Collectors.toMap(EnvironmentConfig::getName, Function.identity()))
+                .collect(Collectors.toMap(EnvironmentConfig::getEnvironment, Function.identity()))
                 .get(environment);
     }
 

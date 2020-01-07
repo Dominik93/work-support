@@ -36,15 +36,15 @@ public class InitResponseMapper {
     private Actions toActions(com.slusarz.worksupport.init.actions.Actions actions) {
         return Actions.builder()
                 .logActions(LogActions.builder()
-                        .packageLiveLog(actions.getLogActions().isPackageLiveLog())
-                        .liveLog(actions.getLogActions().isLiveLog())
+                        .packageLiveLog(actions.getLogDownloaderActions().isPackageLiveLog())
+                        .liveLog(actions.getLogDownloaderActions().isLiveLog())
                         .build())
                 .build();
     }
 
     private ModuleActions toModuleActions(com.slusarz.worksupport.init.actions.ModuleActions moduleActions) {
         return ModuleActions.builder()
-                .log(moduleActions.isLog())
+                .logDownloader(moduleActions.isLogDownloader())
                 .scriptExecutor(moduleActions.isScriptExecutor())
                 .sqlExecutor(moduleActions.isSqlExecutor())
                 .build();
@@ -55,7 +55,7 @@ public class InitResponseMapper {
         apiConfig.setDefaultEnvironment(EnvironmentTenantContext.getCurrentTenant().getName());
         apiConfig.setEnvironments(config.getSqlExecutor().getEnvironments().stream().map(Environment::getName).collect(Collectors.toList()));
         apiConfig.setSqlExecutor(toConfig(config.getSqlExecutor()));
-        apiConfig.setLog(toConfig(config.getLog()));
+        apiConfig.setLogDownloader(toConfig(config.getLogDownloader()));
         apiConfig.setScriptExecutor(toConfig(config.getScriptExecutor()));
         return apiConfig;
     }

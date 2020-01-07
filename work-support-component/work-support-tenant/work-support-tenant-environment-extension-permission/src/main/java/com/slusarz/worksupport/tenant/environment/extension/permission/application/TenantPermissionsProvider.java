@@ -7,11 +7,13 @@ import com.slusarz.worksupport.permission.configuration.config.PermissionConfig;
 import com.slusarz.worksupport.permission.configuration.config.SecurityConfig;
 import com.slusarz.worksupport.permission.domain.permission.Permission;
 import com.slusarz.worksupport.permission.extension.PermissionsProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 @Provider
 public class TenantPermissionsProvider implements PermissionsProvider {
 
@@ -23,7 +25,11 @@ public class TenantPermissionsProvider implements PermissionsProvider {
 
     @Override
     public boolean hasPermission(Permission permission) {
-        return getAllPermissions().stream().anyMatch(s -> s.equals(permission));
+        boolean hasPermission = getAllPermissions().stream().anyMatch(s -> s.equals(permission));
+        log.info("Environment [" + environmentProvider.provide() + "] " +
+                (hasPermission ? "has" : "not has") +
+                " permission [" + permission + "]");
+        return hasPermission;
     }
 
     @Override

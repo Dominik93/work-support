@@ -23,4 +23,4 @@ tenant:
     any: true
     default: ENV1
 context:
-  services: support-test, support-sql-executor
+  services: support-test, support-sql-executor, support-script-executor, support-log-downloader

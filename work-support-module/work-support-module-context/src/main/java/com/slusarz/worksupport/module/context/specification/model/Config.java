@@ -19,7 +19,7 @@ public class Config {
 
     private String defaultEnvironment;
 
-    private ModuleConfig log;
+    private ModuleConfig logDownloader;
 
     private ModuleConfig scriptExecutor;
 

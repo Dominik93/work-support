@@ -16,7 +16,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class ModuleActions {
 
-    private boolean log;
+    private boolean logDownloader;
 
     private boolean sqlExecutor;
 

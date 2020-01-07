@@ -4,14 +4,14 @@ import lombok.Value;
 
 
 @Value(staticConstructor = "of")
-public class LogActions {
+public class LogDownloaderActions {
 
     private boolean liveLog;
 
     private boolean packageLiveLog;
 
-    public static LogActions ofDefault() {
-        return new LogActions(false, false);
+    public static LogDownloaderActions ofDefault() {
+        return new LogDownloaderActions(false, false);
     }
 
 }

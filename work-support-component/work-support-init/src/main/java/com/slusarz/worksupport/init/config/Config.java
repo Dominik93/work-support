@@ -16,7 +16,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Config {
 
-    private ModuleConfig log = ModuleConfig.ofDefault();
+    private ModuleConfig logDownloader = ModuleConfig.ofDefault();
 
     private ModuleConfig scriptExecutor = ModuleConfig.ofDefault();
 

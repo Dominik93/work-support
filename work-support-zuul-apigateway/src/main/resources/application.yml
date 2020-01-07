@@ -17,15 +17,15 @@ eureka:
 zuul:
   prefix: /work-support
   routes:
-    sql-service:
+    sql-executor-service:
       path: /sql-executor/**
       serviceId: support-sql-executor
-    script-service:
+    script-executor-service:
       path: /script-executor/**
       serviceId: support-script-executor
-    log-service:
-      path: /log/**
-      serviceId: support-log
+    log-downloader-service:
+      path: /log-downloader/**
+      serviceId: support-log-downloader
     context-service:
       path: /context/**
       serviceId: support-context

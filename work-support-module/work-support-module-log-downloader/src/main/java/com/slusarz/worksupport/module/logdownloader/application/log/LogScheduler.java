@@ -64,7 +64,7 @@ public class LogScheduler {
         for (Environment environment : environmentConfiguration.getAvailableEnvironments()) {
             for (Application application : applicationProvider.getApplications()) {
                 for (Server server : application.getServers()) {
-                    removeOldFiles(Paths.get(logDownloaderConfiguration.getLogDirectory() + "/" + environment.getName() + "/" + server.getDir()), localDateTime);
+                    removeOldFiles(Paths.get(logDownloaderConfiguration.getLogDirectory().getPath() + "/" + environment.getName() + "/" + server.getDir()), localDateTime);
                 }
             }
         }

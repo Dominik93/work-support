@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ModuleActions {
 
-    private boolean log;
+    private boolean logDownloader;
 
     private boolean sqlExecutor;
 
