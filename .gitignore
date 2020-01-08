@@ -27,7 +27,7 @@ hs_err_pid*
 *.iml
 
 # Target
-target/*
+target/
 
 # Visual Studio Code
 .vscode
@@ -45,7 +45,8 @@ target/*
 /bazel-out
 
 # dependencies
-/node_modules
+node_modules/
+node/
 
 # profiling files
 chrome-profiler-events*.json
