@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    var moduleConfig = new ModuleConfig;
+    var moduleConfig = new ModuleConfig();
     moduleConfig.databases = [];
     moduleConfig.defaultDatabase = null;
     this.contextService.setContextual(true);

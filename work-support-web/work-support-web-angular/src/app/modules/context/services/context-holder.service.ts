@@ -16,7 +16,7 @@ export class ContextHolderService {
   currentContext: Context;
 
   constructor() {
-    console.log("ContextService constructor");
+    console.log("ContextHolderService constructor");
   }
 
   setContextual(contextual: boolean) {

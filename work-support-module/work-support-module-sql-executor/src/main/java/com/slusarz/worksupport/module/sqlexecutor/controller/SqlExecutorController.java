@@ -4,7 +4,7 @@ import com.slusarz.worksupport.module.sqlexecutor.application.service.SqlService
 import com.slusarz.worksupport.module.sqlexecutor.controller.mapper.SqlMapper;
 import com.slusarz.worksupport.module.sqlexecutor.domain.metadata.SqlMetadata;
 import com.slusarz.worksupport.module.sqlexecutor.domain.result.SqlResult;
-import com.slusarz.worksupport.module.sqlexecutor.specification.SqlApi;
+import com.slusarz.worksupport.module.sqlexecutor.specification.SqlExecutorApi;
 import com.slusarz.worksupport.module.sqlexecutor.specification.model.ExecuteSqlRequest;
 import com.slusarz.worksupport.module.sqlexecutor.specification.model.ExecuteSqlResponse;
 import com.slusarz.worksupport.module.sqlexecutor.specification.model.GetSqlResponse;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class SqlController implements SqlApi {
+public class SqlExecutorController implements SqlExecutorApi {
 
     @Autowired
     private SqlMapper sqlMapper;

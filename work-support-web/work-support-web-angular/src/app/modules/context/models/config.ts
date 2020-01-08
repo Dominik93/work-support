@@ -6,7 +6,7 @@ export class Config {
 
     defaultEnvironment: string;
 
-    log: ModuleConfig;
+    logDownloader: ModuleConfig;
 
     sqlExecutor: ModuleConfig;
     

@@ -20,18 +20,18 @@ export class ContextService {
     console.log("ContextService constructor");
   }
 
-  initApplication() {
+  async initApplication() {
     console.log("ContextService initApplication");
-    this.init().subscribe(data => {
-      var context = new Context();
-      context.environment = data.config.defaultEnvironment;
-      context.database = null;
-      context.databases = [];
-      context.actions = data.actions;
-      context.moduleActions = data.moduleActions;
-      this.configService.config = data.config;
-      this.contextHolder.setContext(context);
-    });
+    var data = await this.init().toPromise();
+    var context = new Context();
+    context.environment = data.config.defaultEnvironment;
+    context.database = null;
+    context.databases = [];
+    context.actions = data.actions;
+    context.moduleActions = data.moduleActions;
+    this.configService.config = data.config;
+    this.contextHolder.setContext(context);
+
   }
 
   changeContext(request: ChangeContextRequest) {

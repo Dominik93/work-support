@@ -9,7 +9,7 @@ import { LogRootComponent } from './modules/log/components/log-root/log-root.com
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'script-executor', component: ScriptExecutorComponent },
-  { path: 'log', component: LogRootComponent },
+  { path: 'log-downloader', component: LogRootComponent },
   { path: 'sql-executor', component: SqlExecutorComponent }
 ];
 

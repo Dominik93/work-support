@@ -1,9 +1,9 @@
 package com.slusarz.worksupport.module.logdownloader.specification;
 
-import com.slusarz.worksupport.module.logdownloader.specification.model.CreateJiraBugRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.InitLiveLogRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.InitLiveLogResponse;
 import com.slusarz.worksupport.module.logdownloader.specification.model.LiveLogResponse;
+import com.slusarz.worksupport.module.logdownloader.specification.model.SaveLiveLogRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.StopLiveLogRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.StopLiveLogResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
 
-@RequestMapping("/log/live")
+@RequestMapping("/live")
 public interface LiveLogApi {
 
-    @PostMapping()
+    @PostMapping("/start")
     InitLiveLogResponse initLiveLog(InitLiveLogRequest initLiveLogRequest);
 
     @GetMapping("/{token}")
@@ -24,7 +24,7 @@ public interface LiveLogApi {
     @PostMapping("/stop")
     StopLiveLogResponse stopLiveLog(StopLiveLogRequest token);
 
-    @PostMapping("/jira")
-    void createJiraBug(CreateJiraBugRequest createJiraBugRequest, HttpServletResponse response);
+    @PostMapping("/save")
+    void saveLiveLog(SaveLiveLogRequest saveLiveLogRequest, HttpServletResponse response);
 
 }

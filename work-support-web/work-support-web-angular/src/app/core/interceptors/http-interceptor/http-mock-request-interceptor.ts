@@ -83,7 +83,8 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
     constructor(private injector: Injector) { }
 
     handleChangeContext(request: HttpRequest<any>): Observable<HttpEvent<any>> {
-        var env = request.body.environment;
+        var env = request.body.environment;        
+        console.log('Loaded from json: ' + request.url + ' for ' + env);
         return of(new HttpResponse({ status: 200, body: ((changeContext.json[env][request.method]) as any).default }));
 
     }
@@ -114,11 +115,17 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
     };
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        console.log("Delay 10 sec")
+        this.delay(10000);
         if (request.url === changeContext.url) {
             return this.handleChangeContext(request);
         } else {
             return this.handleDefaultRequest(request)
         }
+    }
+
+    private delay(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
 

@@ -16,6 +16,11 @@
             <groupId>com.slusarz</groupId>
             <artifactId>work-support-init</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.slusarz</groupId>
+            <artifactId>work-support-security</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.slusarz</groupId>
             <artifactId>work-support-ssh</artifactId>

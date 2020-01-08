@@ -27,7 +27,7 @@ export class TenantComponent implements OnInit {
         private contextHolder: ContextHolderService) { }
 
     ngOnInit() {
-        this.initContext(this.contextHolder.currentContext);
+        // this.initContext(this.contextHolder.currentContext);
         this.contextHolder.getContextual().subscribe(contextual => {
             this.contextual = contextual;
         })

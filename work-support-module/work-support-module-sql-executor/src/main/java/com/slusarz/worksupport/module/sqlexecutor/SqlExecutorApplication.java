@@ -1,5 +1,6 @@
 package com.slusarz.worksupport.module.sqlexecutor;
 
+import com.slusarz.worksupport.component.security.configuration.EnableSecurity;
 import com.slusarz.worksupport.multitenancy.database.configuration.EnableMultitenantDatabase;
 import com.slusarz.worksupport.permission.configuration.EnablePermissionSecurity;
 import com.slusarz.worksupport.swagger.EnableSwagger;
@@ -10,11 +11,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Slf4j
 @EnableSwagger
+@EnableSecurity
 @EnableEurekaClient
 @EnableEnvironmentTenant
 @EnablePermissionSecurity
@@ -22,18 +22,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableMultitenantDatabase
 @EnableEnvironmentTenantPermissionExtension
 @SpringBootApplication(scanBasePackages = "com.slusarz.worksupport.module.sqlexecutor")
-public class SqlExecutorApplication extends WebSecurityConfigurerAdapter {
+public class SqlExecutorApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SqlExecutorApplication.class, args);
     }
-
-    @Override
-    protected void configure(HttpSecurity security) throws Exception {
-        security.headers().frameOptions().sameOrigin();
-        security.httpBasic().disable();
-        security.authorizeRequests().anyRequest().permitAll();
-        security.csrf().disable(); // TODO FIXME
-    }
-
 }

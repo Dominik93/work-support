@@ -41,9 +41,9 @@ ssh:
     - environment: ENV2
       ip: 127.0.0.2
 log-downloader:
-  dir: C:log/
+  dir: C:/log/
   output:
-    dir: C:log/
+    dir: C:/log/
   default:
     log-file:
       date-format: yyyy-MM-dd-HH

@@ -39,10 +39,10 @@ export class LogRootComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.contextService.setContextDatabase(this.configService.config.log);
+    this.contextService.setContextDatabase(this.configService.config.logDownloader);
     this.initApplications()
     this.contextSubscription = this.contextService.getContext().subscribe(data => {
-      if (data.moduleActions.log) {
+      if (data.moduleActions.logDownloader) {
         this.initApplications();
       } else {
         this.router.navigateByUrl('');

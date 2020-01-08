@@ -20,6 +20,7 @@
         <module>work-support-swagger</module>
         <module>work-support-file-manager</module>
         <module>work-support-async</module>
+        <module>work-support-security</module>
     </modules>
 
 </project>

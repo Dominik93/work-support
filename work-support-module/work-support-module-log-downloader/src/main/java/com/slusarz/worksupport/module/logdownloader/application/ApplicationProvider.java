@@ -24,6 +24,7 @@ import javax.annotation.PostConstruct;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +80,7 @@ public class ApplicationProvider {
 
 
     public List<Application> getApplications() {
-        return applications.get(environmentProvider.provide());
+        return applications.getOrDefault(environmentProvider.provide(), Collections.emptyList());
     }
 
     public Application getApplication(ApplicationName applicationName) {

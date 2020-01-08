@@ -71,6 +71,11 @@
             </dependency>
             <dependency>
                 <groupId>com.slusarz</groupId>
+                <artifactId>work-support-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.slusarz</groupId>
                 <artifactId>work-support-multitenancy-database</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   mock: false,
-  baseUrl: "http://localost:8074"
+  baseUrl: "http://localhost:8074/work-support"
 };
 
 /*

@@ -19,6 +19,10 @@
 
         <dependency>
             <groupId>com.slusarz</groupId>
+            <artifactId>work-support-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.slusarz</groupId>
             <artifactId>work-support-tenant-database</artifactId>
         </dependency>
         <dependency>

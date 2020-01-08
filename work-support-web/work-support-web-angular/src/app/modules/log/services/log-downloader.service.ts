@@ -16,7 +16,7 @@ import { CreateJiraBugRequest } from '../models/create-jira-bug-request';
 })
 export class LogDownloaderService {
 
-  private logPath: string = environment.baseUrl + "/log";
+  private logPath: string = environment.baseUrl + "/log-downloader";
 
   constructor(private http: HttpClientService) {
     console.log("LogDownloaderService constructor");
@@ -34,7 +34,7 @@ export class LogDownloaderService {
   }
 
   initLiveLog(request: InitLiveLogRequest) {
-    return this.http.post<InitLiveLogResponse>(this.logPath + "/live", request);
+    return this.http.post<InitLiveLogResponse>(this.logPath + "/live/start", request);
   }
 
   getLiveLog(token: string) {
@@ -47,7 +47,7 @@ export class LogDownloaderService {
   }
 
   createJiraBug(request: CreateJiraBugRequest) {
-    return this.http.downloadFile(this.logPath + "/live/jira/create", request, {
+    return this.http.downloadFile(this.logPath + "/live/save", request, {
       responseType: "blob",
       headers: new HttpHeaders().append("Content-Type", "application/json")
     });

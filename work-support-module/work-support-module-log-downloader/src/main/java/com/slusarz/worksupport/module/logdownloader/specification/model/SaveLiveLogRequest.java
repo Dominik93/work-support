@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateJiraBugRequest {
+public class SaveLiveLogRequest {
 
     private List<LiveLogEntry> liveLogEntries;
 

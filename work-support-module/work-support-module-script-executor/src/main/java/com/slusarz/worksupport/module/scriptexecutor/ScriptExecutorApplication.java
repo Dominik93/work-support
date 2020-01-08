@@ -1,5 +1,6 @@
 package com.slusarz.worksupport.module.scriptexecutor;
 
+import com.slusarz.worksupport.component.security.configuration.EnableSecurity;
 import com.slusarz.worksupport.filemanager.configuration.EnableFileManager;
 import com.slusarz.worksupport.permission.configuration.EnablePermissionSecurity;
 import com.slusarz.worksupport.ssh.configuration.EnableSsh;
@@ -13,12 +14,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Slf4j
 @EnableSsh
 @EnableAsync
+@EnableSecurity
 @EnableSwagger
 @EnableScheduling
 @EnableFileManager
@@ -28,17 +28,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableEnvironmentTenantSshExtension
 @EnableEnvironmentTenantPermissionExtension
 @SpringBootApplication(scanBasePackages = "com.slusarz.worksupport.module.scriptexecutor")
-public class ScriptExecutorApplication extends WebSecurityConfigurerAdapter {
+public class ScriptExecutorApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(ScriptExecutorApplication.class, args);
     }
 
-    @Override
-    protected void configure(HttpSecurity security) throws Exception {
-        security.headers().frameOptions().sameOrigin();
-        security.httpBasic().disable();
-        security.authorizeRequests().anyRequest().permitAll();
-        security.csrf().disable(); // TODO FIXME
-    }
 }

@@ -11,11 +11,11 @@ import com.slusarz.worksupport.module.logdownloader.domain.application.Applicati
 import com.slusarz.worksupport.module.logdownloader.domain.file.Archive;
 import com.slusarz.worksupport.module.logdownloader.domain.livelog.Token;
 import com.slusarz.worksupport.module.logdownloader.specification.LiveLogApi;
-import com.slusarz.worksupport.module.logdownloader.specification.model.CreateJiraBugRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.InitLiveLogRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.InitLiveLogResponse;
 import com.slusarz.worksupport.module.logdownloader.specification.model.LiveLogEntry;
 import com.slusarz.worksupport.module.logdownloader.specification.model.LiveLogResponse;
+import com.slusarz.worksupport.module.logdownloader.specification.model.SaveLiveLogRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.StopLiveLogRequest;
 import com.slusarz.worksupport.module.logdownloader.specification.model.StopLiveLogResponse;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -82,10 +82,10 @@ public class LiveLogController implements LiveLogApi {
     }
 
     @Override
-    public void createJiraBug(@RequestBody CreateJiraBugRequest createJiraBugRequest, HttpServletResponse response) {
+    public void saveLiveLog(@RequestBody SaveLiveLogRequest saveLiveLogRequest, HttpServletResponse response) {
         try {
             Map<Application, String> liveLog = new HashMap<>();
-            for (LiveLogEntry liveLogEntry : createJiraBugRequest.getLiveLogEntries()) {
+            for (LiveLogEntry liveLogEntry : saveLiveLogRequest.getLiveLogEntries()) {
                 liveLog.put(applicationProvider.getApplication(ApplicationName.of(liveLogEntry.getApplication())),
                         liveLogEntry.getContent());
             }

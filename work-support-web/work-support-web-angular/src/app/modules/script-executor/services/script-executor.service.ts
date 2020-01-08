@@ -11,22 +11,22 @@ import { environment } from 'src/environments/environment';
 })
 export class ScriptExecutorService {
 
-  private scriptExecutorPath: string = environment.baseUrl + "/scripts";
+  private scriptExecutorPath: string = environment.baseUrl + "/script-executor";
 
   constructor(private http: HttpClientService) {
     console.log("ScriptExecutorService constructor");
   }
 
   getScripts() {
-    return this.http.get<GetScriptsResponse>(this.scriptExecutorPath);
+    return this.http.get<GetScriptsResponse>(this.scriptExecutorPath + "/scripts");
   }
 
   executeScript(executeScriptRequest: ExecuteScriptRequest) {
-    return this.http.post<ExecuteScriptResponse>(this.scriptExecutorPath, executeScriptRequest);
+    return this.http.post<ExecuteScriptResponse>(this.scriptExecutorPath + "/scripts", executeScriptRequest);
   }
 
   getScriptOutput(token: string) {
-    return this.http.get<GetScriptOutputResponse>(this.scriptExecutorPath + "/output/" + token);
+    return this.http.get<GetScriptOutputResponse>(this.scriptExecutorPath + "/scripts/output/" + token);
   }
 
 }

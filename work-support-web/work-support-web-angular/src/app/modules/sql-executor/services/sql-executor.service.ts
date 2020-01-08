@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientService } from 'src/app/core/services/http-client/http-client.service';
-import { GetSqlReposnse } from '../models/get-sql-response';
+import { GetSqlResponse } from '../models/get-sql-response';
 import { ExecuteSqlRequest } from '../models/execute-sql-request';
 import { ExecuteSqlResponse } from '../models/execute-sql-response';
 import { environment } from 'src/environments/environment';
@@ -18,11 +18,11 @@ export class SqlExecutorService {
   }
 
   getSql() {
-    return this.http.get<GetSqlReposnse>(this.sqlExecutorPath);
+    return this.http.get<GetSqlResponse>(this.sqlExecutorPath + "/sql");
   }
 
   executeSql(request: ExecuteSqlRequest) {
-    return this.http.post<ExecuteSqlResponse>(this.sqlExecutorPath, request);
+    return this.http.post<ExecuteSqlResponse>(this.sqlExecutorPath + "/sql", request);
   }
 
 }

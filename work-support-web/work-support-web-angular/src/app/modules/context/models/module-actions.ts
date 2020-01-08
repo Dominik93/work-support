@@ -1,6 +1,6 @@
 export class ModuleActions {
 
-    log: boolean;
+    logDownloader: boolean;
     
     sqlExecutor: boolean;
     

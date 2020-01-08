@@ -10,15 +10,15 @@ import { Context } from 'src/app/modules/context/models/context';
 export class MenuComponent implements OnInit {
 
   sqlExecutor: boolean;
-  
+
   scriptExecutor: boolean;
-  
-  log: boolean;
+
+  logDownloader: boolean;
 
   constructor(private contextHolder: ContextHolderService) { }
 
   ngOnInit() {
-    this.initMenu(this.contextHolder.currentContext);
+    //this.initMenu(this.contextHolder.currentContext);
     this.contextHolder.getContext().subscribe(data => {
       this.initMenu(data);
     })
@@ -26,8 +26,8 @@ export class MenuComponent implements OnInit {
 
   initMenu(context: Context) {
     this.sqlExecutor = context.moduleActions.sqlExecutor;
-      this.scriptExecutor = context.moduleActions.scriptExecutor;
-      this.log = context.moduleActions.log;
+    this.scriptExecutor = context.moduleActions.scriptExecutor;
+    this.logDownloader = context.moduleActions.logDownloader;
   }
 
   redirect(url) {

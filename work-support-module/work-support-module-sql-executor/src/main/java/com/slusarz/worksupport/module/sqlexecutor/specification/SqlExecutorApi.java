@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping
-public interface SqlApi {
+@RequestMapping()
+public interface SqlExecutorApi {
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/sql", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     ExecuteSqlResponse executeSqlResponse(ExecuteSqlRequest executeSqlRequest);
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/sql", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     GetSqlResponse getSql();
 
 

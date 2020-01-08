@@ -7,7 +7,7 @@ import com.slusarz.worksupport.module.scriptexecutor.domain.script.Option;
 import com.slusarz.worksupport.module.scriptexecutor.domain.script.Script;
 import com.slusarz.worksupport.module.scriptexecutor.domain.script.ScriptName;
 import com.slusarz.worksupport.module.scriptexecutor.domain.script.ScriptOutput;
-import com.slusarz.worksupport.module.scriptexecutor.specification.ScriptApi;
+import com.slusarz.worksupport.module.scriptexecutor.specification.ScriptExecutorApi;
 import com.slusarz.worksupport.module.scriptexecutor.specification.model.ExecuteScriptRequest;
 import com.slusarz.worksupport.module.scriptexecutor.specification.model.ExecuteScriptResponse;
 import com.slusarz.worksupport.module.scriptexecutor.specification.model.GetScriptOutputResponse;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ScriptController implements ScriptApi {
+public class ScriptExecutorController implements ScriptExecutorApi {
 
     @Autowired
     private ScriptService scriptService;
