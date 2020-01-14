@@ -27,4 +27,6 @@ public class EnvironmentConfig {
     private Connection connection;
 
     private String path;
+
+    private AuthenticationConfig authentication;
 }

@@ -2,11 +2,13 @@ package com.slusarz.worksupport.module.logdownloader.application.downloader.url;
 
 import com.slusarz.worksupport.commontypes.application.CloseableUtil;
 import com.slusarz.worksupport.commontypes.application.loggable.Loggable;
+import com.slusarz.worksupport.module.logdownloader.application.authentication.Authentication;
 import com.slusarz.worksupport.module.logdownloader.domain.downloader.UrlDownloadRequest;
 import com.slusarz.worksupport.module.logdownloader.domain.file.CurrentLogFile;
 import com.slusarz.worksupport.module.logdownloader.domain.file.FtpMetadata;
 import com.slusarz.worksupport.module.logdownloader.domain.file.UrlMetadata;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
@@ -24,9 +26,9 @@ import java.util.concurrent.Future;
 @Loggable
 public class UrlDownloader {
 
- /*   @Autowired
+    @Autowired
     private Authentication authentication;
-*/
+
     @Async
     public Future<Void> downloadAsync(UrlDownloadRequest request) {
         download(request);
@@ -35,7 +37,7 @@ public class UrlDownloader {
 
     public void download(UrlDownloadRequest urlDownloadRequest) {
         try {
-            // authentication.authorize(); TODO FIXME
+            authentication.authenticate();
 
             FtpMetadata destinationArchive = urlDownloadRequest.getDestinationArchive();
             UrlMetadata sourceArchive = urlDownloadRequest.getSourceArchive();
@@ -59,7 +61,7 @@ public class UrlDownloader {
     public CurrentLogFile get(UrlMetadata sourceFile) {
         try {
 
-           // authentication.authorize();
+            authentication.authenticate();
             log.info("Try download file form URL");
             log.info("source " + sourceFile.toFullURL().toString());
             byte[] content;

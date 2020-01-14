@@ -55,6 +55,9 @@ log-downloader:
       servers: srv1/tst, srv2/tst
       connection: HTTP
       path: opt/logs
+      authentication:
+        username: user
+        password: pass
     - environment: ENV2
       servers: srv1
       connection: SSH
